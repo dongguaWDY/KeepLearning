@@ -17,17 +17,19 @@ public class LearnSendHttpRequest {
 			
 			URL url = new URL(targetURL);
 			connection = (HttpURLConnection) url.openConnection();
-			connection.setRequestMethod(method);
+			connection.setRequestMethod(method);//"GET" default 
 			
 			System.out.println("using proxy? "+connection.usingProxy());
 			System.out.println("connect time out: "+connection.getConnectTimeout());
 			System.out.println("read time out: "+connection.getReadTimeout());
 			
-/*			connection.setRequestProperty("Content-Type","application/x-www-form-urlencoded");
-			connection.setRequestProperty("Content-Length",Integer.toString(urlParameters.getBytes().length));
-			connection.setRequestProperty("Content-Language", "en-US");
 			
-			connection.setDoOutput(true);*/
+          /*//设置请求头部
+            connection.setRequestProperty("Content-Type","application/x-www-form-urlencoded");
+			connection.setRequestProperty("Content-Length",Integer.toString(urlParameters.getBytes().length));
+			connection.setRequestProperty("Content-Language", "en-US");			
+			connection.setDoOutput(true);
+			*/
 			connection.setUseCaches(false); 
 			
 			
@@ -44,11 +46,8 @@ public class LearnSendHttpRequest {
 			}
 			
 			
-			long endTime = System.nanoTime();
-			long duration = (endTime - startTime) / 1000000;
-			System.out.println("spend " + duration + " ms");
+			System.out.println("spend " + (System.nanoTime() - startTime) / 1000000 + " ms");
 
-			connection.clo
 			
 /*			DataOutputStream wr = new DataOutputStream(connection.getOutputStream());
 			wr.writeBytes(urlParameters);
