@@ -392,6 +392,7 @@ public class HashMap<K,V> extends AbstractMap<K,V>
      * necessary. When allocated, length is always a power of two.
      * (We also tolerate length zero in some operations to allow
      * bootstrapping mechanics that are currently not needed.)
+     * 底层存放元素的数组
      */
     transient Node<K,V>[] table;
 
@@ -626,13 +627,13 @@ public class HashMap<K,V> extends AbstractMap<K,V>
                    boolean evict) {
         Node<K,V>[] tab; Node<K,V> p; int n, i;
         if ((tab = table) == null || (n = tab.length) == 0)
-            n = (tab = resize()).length;
+            n = (tab = resize()).length;//在resize中初始化底层数组
         
         /**
          * 选择桶位置，如发生hash碰撞，则使用链表（红黑树？）维持
          */
         if ((p = tab[i = (n - 1) & hash]) == null)
-            tab[i] = newNode(hash, key, value, null);
+            tab[i] = newNode(hash, key, value, null);//桶位置为null则存放入<key,value>
         else {
             Node<K,V> e; K k;
             if (p.hash == hash && ((k = p.key) == key || (key != null && key.equals(k))))
