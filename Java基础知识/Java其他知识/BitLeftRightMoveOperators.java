@@ -1,6 +1,6 @@
 
 
-public class LeftRightMoveOperators{
+public class BitLeftRightMoveOperators{
 	public static void main(String[] args){
 		int i=16;
 		int j=-16;
