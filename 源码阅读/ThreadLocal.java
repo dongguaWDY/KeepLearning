@@ -158,7 +158,7 @@ public class ThreadLocal<T> {
      */
     public T get() {
         Thread t = Thread.currentThread();
-        ThreadLocalMap map = getMap(t);
+        ThreadLocalMap map = getMap(t);//equivelentt.getMap()每个线程都持有一个ThreadLocalMap对象
         if (map != null) {
             ThreadLocalMap.Entry e = map.getEntry(this);
             if (e != null) {
@@ -177,9 +177,10 @@ public class ThreadLocal<T> {
      * @return the initial value
      */
     private T setInitialValue() {
-        T value = initialValue();
         Thread t = Thread.currentThread();
         ThreadLocalMap map = getMap(t);
+        
+        T value = initialValue();
         if (map != null)
             map.set(this, value);
         else
