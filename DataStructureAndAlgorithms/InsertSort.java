@@ -85,9 +85,9 @@ public class InsertSort{
 					right = midIndex-1;
 				}else if(flag > array[midIndex]){
 					left = midIndex+1;
-				}else{
-					left = midIndex;
-					right = midIndex;
+				}else{//查找成功
+					left = midIndex+1;
+					right = midIndex+1;
 					break;
 				}
 			}
