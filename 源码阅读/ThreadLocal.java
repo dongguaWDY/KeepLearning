@@ -465,7 +465,8 @@ public class ThreadLocal<T> {
 
             for (Entry e = tab[i];
                  e != null;
-                 e = tab[i = nextIndex(i, len)]) {
+                 e = tab[i = nextIndex(i, len)]) 
+            {
                 ThreadLocal<?> k = e.get();
 
                 if (k == key) {
@@ -494,7 +495,8 @@ public class ThreadLocal<T> {
             int i = key.threadLocalHashCode & (len-1);
             for (Entry e = tab[i];
                  e != null;
-                 e = tab[i = nextIndex(i, len)]) {
+                 e = tab[i = nextIndex(i, len)]) 
+            {
                 if (e.get() == key) {
                     e.clear();
                     expungeStaleEntry(i);

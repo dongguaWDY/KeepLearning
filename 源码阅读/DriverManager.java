@@ -170,8 +170,8 @@ public class DriverManager {
         if (sec != null) {
             sec.checkPermission(SET_LOG_PERMISSION);
         }
-            logStream = null;
-            logWriter = out;
+        logStream = null;
+        logWriter = out;
     }
 
 
@@ -627,7 +627,7 @@ public class DriverManager {
         }
     }
 
-
+    //  使用适配器模式
     //  获取数据库连接
     //  Worker method called by the public getConnection() methods.
     private static Connection getConnection(
@@ -639,7 +639,7 @@ public class DriverManager {
          * can be loaded from here.
          */
         ClassLoader callerCL = caller != null ? caller.getClassLoader() : null;
-        synchronized(DriverManager.class) {
+        synchronized(DriverManager.class) {//这个同步代码块的作用WDY??
             // synchronize loading of the correct classloader.
             if (callerCL == null) {
                 callerCL = Thread.currentThread().getContextClassLoader();
