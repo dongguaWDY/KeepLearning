@@ -1,19 +1,8 @@
+package DataStructureAndAlgorithms;
 import java.util.Random;
 
 
 public class SelectionSort{
-	public static void main(String[] args){
-		Random rand = new Random();
-		int[] array = new int[1000];
-		for(int i=0; i<array.length; i++){
-			array[i] = rand.nextInt()%100000;
-		}
-		selectionSort(array);
-		for(int i=0; i<array.length; i++){
-			System.out.println(array[i]);
-		}
-	}
-
 	public static void selectionSort(int[] array){
 		for(int i=0; i<array.length-1; i++){
 			int minIndex = i;

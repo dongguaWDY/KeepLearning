@@ -1,18 +1,15 @@
+package DataStructureAndAlgorithms;
 import java.util.Random;
 
 public class HeapSort{
-	public static void main(String[] args){
-		HeapSort hSort = new HeapSort();
-		int[] array = hSort.genRandINTArray(100);
-		hSort.buildMaxHeap(array);
-		hSort.keepMaxHeap(array);
-		for(int i=0; i<array.length; i++){
-			System.out.println(array[i]);
-		}
+
+	public static void heapSort(int[] array){
+		buildMaxHeap(array);
+		keepMaxHeap(array);
 	}
 
-	//
-	private void buildMaxHeap(int[] array){
+	
+	private static void buildMaxHeap(int[] array){
 		for(int i=0; i<array.length; i++){
 			int index = i;
 			while(index > 0){
@@ -30,7 +27,7 @@ public class HeapSort{
 		}
 	}
 
-	private void keepMaxHeap(int[] array){
+	private static void keepMaxHeap(int[] array){
 		for(int i=array.length-1; i>0; i--){
 			//swap
 			array[0] = array[0] + array[i];
@@ -60,16 +57,5 @@ public class HeapSort{
 				j = changePos;
 			}
 		}
-	}
-
-	//generate a random array
-	public  int[] genRandINTArray(int length){
-		Random rand = new Random();
-		int[] array = new int[length];
-		long divisor = length * 100;
-		for(int i=0; i<array.length; i++){
-			array[i] = (int)(rand.nextInt()%divisor);
-		}
-		return array;
 	}
 }
