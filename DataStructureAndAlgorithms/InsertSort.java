@@ -36,6 +36,7 @@ public class InsertSort{
 	 *@datetime:2017.1.1
      */
  	
+	/*
 	public static void insertSort(int[] array){
 		for(int i=1; i<array.length; i++){
 			int flag=array[i];
@@ -46,6 +47,25 @@ public class InsertSort{
 					array[j+1] = flag;
 					break;
 				}
+			}
+		}
+	}
+	*/
+
+ 	/**
+	 *简单插入排序算法
+	 *@version:v3
+	 *@author:WDY
+	 *@datetime:2017.4.6
+     */
+ 	
+	public static void insertSort(int[] array){//待测试
+		for(int i=1; i < array.length; i++){
+			for(int j = i; j >= 1 && array[j-1] > array[j]; j--){
+				//swap 
+				int temp = array[j - 1];
+				array[j - 1] = array[j];
+				array[j] = temp;
 			}
 		}
 	}

@@ -37,7 +37,7 @@ public class HeapSort{
 			for(int j=0; j<i;){
 				int changePos = 2*j + 1;
 
-				//in case of index out of bounds
+				//in case of index out of bounds, this is the key WDY!!
 				if(changePos >= i ){
 					break;
 				}else if(changePos + 1 == i){

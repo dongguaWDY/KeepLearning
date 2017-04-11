@@ -16,11 +16,11 @@ public class BinarySearch{
 		int LIndex=0;
 		int RIndex=array.length-1;
 		while(LIndex <= RIndex){
-			//这种方法效率更高：int MidIndex = LIndex + (RIndex - LIndex) >>> 1;
+			//这种方法效率更高且可有效防止两数相加后溢出：int MidIndex = LIndex + (RIndex - LIndex) >>> 1;
 			int MidIndex = (LIndex+RIndex)/2;
 
 			if(key > array[MidIndex]){
-				LIndex = MidIndex+1;//如果不加1或者减1可能会产生什么结果？
+				LIndex = MidIndex+1;//如果不加1或者减1可能会产生什么结果？可能会产生死循环
 			}else if(key < array[MidIndex]){
 				RIndex = MidIndex-1;
 			}else{

@@ -14,11 +14,17 @@ public class MainTest{
 	public static void main(String[] args){
 
 		//生成长度为1000，值是随机int的类型的整数数组
-		int length = 10000000;
+		int length = 100;
 		int[] array = Utils.genRandINTArray(length);
+		int[] retArray = null;
 
+		//运行时间起始点
 		long begin = 0;
 
+		//测试快速排序的时间复杂度
+		begin = System.nanoTime();
+		MergeSort.mergeSort(Arrays.copyOfRange(array,0,array.length));
+		print("归并排序:"+(System.nanoTime()-begin)/1000000+"ms");
 
 		//测试快速排序的时间复杂度
 		begin = System.nanoTime();
@@ -27,12 +33,12 @@ public class MainTest{
 
 		//测试冒泡排序的时间复杂度
 		begin = System.nanoTime();
-		//BubbleSort.bubbleSort(Arrays.copyOfRange(array,0,array.length));
+		BubbleSort.bubbleSort(Arrays.copyOfRange(array,0,array.length));
 		print("\n冒泡排序:"+(System.nanoTime()-begin)/1000000+"ms");
 
 		//测试选择排序的时间复杂度
 		begin = System.nanoTime();
-		//SelectionSort.selectionSort(Arrays.copyOfRange(array,0,array.length));
+		SelectionSort.selectionSort(Arrays.copyOfRange(array,0,array.length));
 		print("\n选择排序:"+(System.nanoTime()-begin)/1000000+"ms");
 
 		//测试堆排序的时间复杂度
@@ -43,8 +49,9 @@ public class MainTest{
 
 		//测试简单插入排序的时间复杂度
 		begin = System.nanoTime();
-		//InsertSort.insertSort(Arrays.copyOfRange(array,0,array.length));
+		InsertSort.insertSort(retArray = Arrays.copyOfRange(array,0,array.length));
 		print("\n简单插入排序:"+(System.nanoTime()-begin)/1000000+"ms");
+		print(Arrays.toString(retArray));
 
 
 		//测试二分法插入排序的时间复杂度
