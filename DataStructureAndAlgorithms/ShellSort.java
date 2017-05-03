@@ -13,13 +13,9 @@ public class ShellSort{
 			groups = array.length/n;
 			for(int i=0; i<groups; i++){
 				int j = i;
-
-				//System.out.println(2);
 				while(j < array.length){
 					int index = j;
-					//System.out.println(3);
 					while(true){
-						//System.out.println(4);
 						if(index <= i)
 							break;
 						if(array[index-groups] > array[index]){
@@ -34,7 +30,6 @@ public class ShellSort{
 						}
 						break;
 					}
-					//System.out.println("RandomDFJ:"+groups+":"+j+":"+array.length);
 					j += groups;
 				}
 

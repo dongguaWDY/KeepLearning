@@ -633,7 +633,7 @@ public class HashMap<K,V> extends AbstractMap<K,V>
          */
         if ((p = tab[i = (n - 1) & hash]) == null)
             tab[i] = newNode(hash, key, value, null);//妗朵綅缃负null鍒欏瓨鏀惧叆<key,value>
-        else {
+        else {//如果新元素在数组中的插入位置已经被占用，则使用链表，如果该链表在插入新元素后的长度达到TREEIFY_THRESHOLD，就要转换成红黑树了
             Node<K,V> e; K k;
             if (p.hash == hash && ((k = p.key) == key || (key != null && key.equals(k))))
                 e = p;
@@ -643,7 +643,7 @@ public class HashMap<K,V> extends AbstractMap<K,V>
                 for (int binCount = 0; ; ++binCount) {
                     if ((e = p.next) == null) {
                         p.next = newNode(hash, key, value, null);
-                        //閾捐〃鏁伴噺瓒呰繃闃堝�硷紝鏀圭敤绾㈤粦鏍戠淮鎶DY??
+                        //
                         if (binCount >= TREEIFY_THRESHOLD - 1) // -1 for 1st
                             treeifyBin(tab, hash);
                         break;
