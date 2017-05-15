@@ -40,6 +40,7 @@ public class MergeSort{
 			temp[index] = array[b2];
 		}
 
+		//将排序好的数组还给原数组
 		for(int i = 0; i < temp.length; i++){
 			array[begin + i] = temp[i];
 		}

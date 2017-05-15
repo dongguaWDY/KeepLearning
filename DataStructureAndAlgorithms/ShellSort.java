@@ -24,8 +24,7 @@ public class ShellSort{
 							array[index] = array[index-groups] - array[index];
 							array[index-groups] = array[index-groups] - array[index];
 
-							index -= groups;
-							
+							index -= groups;		
 							continue;
 						}
 						break;

@@ -1,3 +1,4 @@
+
 package DataStructureAndAlgorithms;
 
 import java.util.Random;
@@ -14,6 +15,28 @@ public class Utils{
 		for(int i=0; i<array.length; i++){
 			array[i] = rand.nextInt();
 		}
+
+
+		//进队操作
+		synchronized(queue){
+			while(queue.full()){
+				queue.wait();
+			}
+			queue.put(element);
+			queue.notifyAll();
+		}
+
+		//出队操作
+		synchronized(queue){
+			while(queue.empty()){
+				queue.wait();
+			}
+			queue.get();
+			queue.notifyAll();
+		}
+
 		return array;
 	}
+
+
 }
