@@ -20,9 +20,9 @@ public class BinarySearch{
 			int MidIndex = (LIndex+RIndex)/2;
 
 			if(key > array[MidIndex]){
-				LIndex = MidIndex+1;//如果不加1或者减1可能会产生什么结果？可能会产生死循环
+				LIndex = MidIndex + 1;//如果不加1或者减1可能会产生什么结果？可能会产生死循环
 			}else if(key < array[MidIndex]){
-				RIndex = MidIndex-1;
+				RIndex = MidIndex - 1;
 			}else{
 				return true;
 			}
